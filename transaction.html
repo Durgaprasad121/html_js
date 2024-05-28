@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Transaction Page</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/style_withdraw.css">
+        <script>
+            function validation() {
+                var account_num=document.myform.account_num.value;
+                if(isNaN(account_num)) {
+                    window.alert("the account number should contains only digits")
+                }
+                if(account_num.length!=12) {
+                    window.alert("the account number should contains 12 digits")
+                    return false;
+                }
+                if(!(account_num.slice(0,8)=="36313904")) {
+                    window.alert("invalid account number");
+                    return false;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="center">
+            <div class="header">Transaction History</div>
+            <form name="myform" onsubmit="return validation()" action="transaction_jsp.jsp">
+                <input type="text" name="account_num" placeholder="Enter Account Number">
+                <input type="submit"  value="Click On It" name="" >
+            </form>
+        </div>
+    </body>
+</html>
